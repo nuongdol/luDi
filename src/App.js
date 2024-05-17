@@ -1,31 +1,58 @@
-import './App.css';
-import Login from "../src/components/Login/Login"
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home/Home';
-import Register from './components/Register/Register';
-import ForgotPassword from './components/ForgotPassword/ForgotPassword';
-import Profile from './components/Profile/Profile';
-import Posts from './components/Post/Posts';
-import Personal from './components/Personal infor/basicinfor';
-import EditProfile from './components/EditProfile/EditProfile';
-import Finding from './components/Finding/Finding';
+import './App.css'
+import { Route, Routes } from 'react-router-dom'
+
+import AuthLayout from './_auth/AuthLayout'
+import SigninForm from './_auth/forms/SigninForm'
+import SignupForm from './_auth/forms/SignupForm'
+import ForgotPassword from './_auth/forms/ForgotPassword'
+
+import RootLayout from './_root/RootLayout'
+import {
+  Home,
+  Posts,
+  Profile,
+  Finding,
+  Personal,
+  EditProfile,
+  Message,
+  Group
+} from './_root/pages'
+import HomeLayout from './_root/HomeLayout'
 
 function App() {
+  const isLogin = localStorage.getItem('IuDiToken')
   return (
-    <Router>
+    <main>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/profile/:username" element={<Profile />} />
-        <Route path="/posts/:groupId" element={<Posts />} />
-        <Route path="/personal" element={<Personal />} />
-        <Route path="/profile/edit" element={<EditProfile />} />
-        <Route path="/finding" element={<Finding />} />
+        {/* public routes */}
+        <Route path="/" element={<AuthLayout />}>
+          <Route path="register" element={<SignupForm />} />
+          <Route path="login" element={<SigninForm />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+        </Route>
+
+        {/* private routes */}
+        <Route element={<RootLayout />}>
+          <Route path="/posts/:groupId" element={<Posts />} />
+          <Route path="/finding" element={<Finding />} />
+          <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/personal" element={<Personal />} />
+          <Route path="/profile/edit" element={<EditProfile />} />
+          <Route path="/group" element={<Group />} />
+        </Route>
+
+        {/* <Route element={<HomeLayout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/message" element={<Message />} />
+        </Route> */}
+
+        <Route path='/home' element={<HomeLayout />}>
+          <Route path="" element={<Home />} />
+          <Route path="message/:id" element={<Message />} />
+        </Route>
       </Routes>
-    </Router>
-  );
+    </main>
+  )
 }
 
-export default App;
+export default App

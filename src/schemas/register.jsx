@@ -11,14 +11,17 @@ const registerSchema = Joi.object({
         'any.required': 'Password can\'t be empty!',
         'string.empty': 'Password can\'t be empty!'
     }),
+
     Latitude: Joi.required().messages({
         'any.required': 'Can\'t identify your geolocation!',
         'string.empty': 'Can\'t identify your geolocation!'
     }),
+
     Longitude: Joi.required().messages({
         'any.required': 'Can\'t identify your geolocation!',
         'string.empty': 'Can\'t identify your geolocation!'
     }),
+
     LastLoginIP :Joi.string().required(),
     avatarLink: Joi.string().required(),
     Cf_Password: Joi.valid(Joi.ref('Password')).messages({
