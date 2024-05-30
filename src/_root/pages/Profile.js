@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react'
 import { FaAd, FaBirthdayCake, FaEnvelope, FaMale } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../../components/shared/Footer'
-import Header from '../../components/shared/Header'
+import Header1 from '../../components/header/Header1'
 import ModalChangePassWord from '../../components/shared/ModalChangePassWord'
 import NotFound from '../../components/shared/NotFound'
 import bg from '../../images/bg3.jpg'
@@ -79,7 +79,7 @@ function Profile() {
         <NotFound />
       ) : (
         <div style={background}>
-          <Header />
+          <Header1 />
           <div className="flex items-center justify-center mt-10">
             <Card className="rounded-2xl p-[20px] border-4 bg-black border-green-500">
               <CardHeader

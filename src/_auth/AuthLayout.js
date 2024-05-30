@@ -1,13 +1,13 @@
 import React from 'react'
-import { Outlet, Navigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
-import Logo from '../images/logoApp.png'
 import appstore from '../images/appstore.png'
 import chplay from '../images/chplay.png'
+import Logo from '../images/logoApp.png'
 
-import background from '../images/background.jpg'
-import Header from '../components/shared/Header'
+import Header1 from '../components/header/Header1'
 import Footer from '../components/shared/Footer'
+import background from '../images/background.jpg'
 
 const AuthLayout = () => {
   const backgroundImageStyle = {
@@ -24,7 +24,7 @@ const AuthLayout = () => {
       className="flex flex-col justify-between w-full h-screen"
       style={backgroundImageStyle}
     >
-      <Header />
+      <Header1 />
       <div className="flex flex-col justify-center items-center mt-[100px] relative top-[-150px]">
         <img src={Logo} alt="Your" className="w-[400px]" />
         <h1 className="font-bold text-white text-7xl">Kết Nối Yêu Thương</h1>

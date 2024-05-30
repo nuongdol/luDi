@@ -8,51 +8,49 @@ import ForgotPassword from './_auth/forms/ForgotPassword'
 
 import RootLayout from './_root/RootLayout'
 import {
-  Home,
-  Posts,
-  Profile,
-  Finding,
-  Personal,
-  EditProfile,
-  Message,
-  Group
+ Home,
+ Posts,
+ Profile,
+ Finding,
+ Personal,
+ EditProfile,
+ Message,
+ Group,
 } from './_root/pages'
 import HomeLayout from './_root/HomeLayout'
+import GroupDetail from './components/shared/GroupDetail'
 
 function App() {
-  const isLogin = localStorage.getItem('IuDiToken')
-  return (
-    <main>
-      <Routes>
-        {/* public routes */}
-        <Route path="/" element={<AuthLayout />}>
-          <Route path="register" element={<SignupForm />} />
-          <Route path="login" element={<SigninForm />} />
-          <Route path="forgot-password" element={<ForgotPassword />} />
-        </Route>
+ return (
+  <main>
+   <Routes>
+    {/* public routes */}
+    <Route path='/' element={<AuthLayout />}>
+     <Route path='register' element={<SignupForm />} />
+     <Route path='login' element={<SigninForm />} />
+     <Route path='forgot-password' element={<ForgotPassword />} />
+    </Route>
 
-        {/* private routes */}
-        <Route element={<RootLayout />}>
-          <Route path="/posts/:groupId" element={<Posts />} />
-          <Route path="/finding" element={<Finding />} />
-          <Route path="/profile/:username" element={<Profile />} />
-          <Route path="/personal" element={<Personal />} />
-          <Route path="/profile/edit" element={<EditProfile />} />
-          <Route path="/group" element={<Group />} />
-        </Route>
+    {/* private routes */}
+    <Route element={<RootLayout />}>
+     <Route path='/posts/:groupId' element={<Posts />} />
+     <Route path='/finding' element={<Finding />} />
+     <Route path='/profile/:username' element={<Profile />} />
+     <Route path='/personal' element={<Personal />} />
+     <Route path='/profile/edit' element={<EditProfile />} />
+    </Route>
 
-        {/* <Route element={<HomeLayout />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/message" element={<Message />} />
-        </Route> */}
+    <Route path='/home' element={<HomeLayout />}>
+     <Route path='' element={<Home />} />
+     <Route path='message/:id' element={<Message />} />
+    </Route>
 
-        <Route path='/home' element={<HomeLayout />}>
-          <Route path="" element={<Home />} />
-          <Route path="message/:id" element={<Message />} />
-        </Route>
-      </Routes>
-    </main>
-  )
+    <Route path='/group' element={<Group />}>
+     <Route path=':slug/:groupId' element={<GroupDetail/>}/>
+    </Route>
+   </Routes>
+  </main>
+ )
 }
 
 export default App

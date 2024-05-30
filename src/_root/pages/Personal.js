@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import background from '../../images/bg3.jpg'
 import Footer from '../../components/shared/Footer'
-import Header from '../../components/shared/Header'
+import Header1 from '../../components/header/Header1'
 
 function Personal() {
   const [imagePost, setImagePost] = useState(null)
@@ -99,7 +99,7 @@ function Personal() {
 
   return (
     <div style={backgroundImage} className="">
-      <Header />
+      <Header1 />
       <div className="relative z-0">
         <div className="fixed top-0 left-0 w-[500px] border-r-2 border-white h-screen">
           <div className="mt-[200px] ml-[50px] mr-[50px]">

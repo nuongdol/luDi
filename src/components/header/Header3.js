@@ -1,17 +1,17 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Logo from '../../images/logoApp.png'
 
-import config from '../../configs/Configs.json'
 import { getProfile } from '../shared/getProfile'
 import Navbar from './Navbar'
+import config from '../../configs/Configs.json'
 
 const { AVATAR_DEFAULT_MALE } = config
 
-const Header2 = ({ onGetHeight }) => {
+const Header3 = ({ onGetHeight, isDark }) => {
  const [userInfo, setUserInfo] = useState(null)
  const username = localStorage.getItem('UserNameIuDi')
-
- const headerRef = useRef()
 
  useEffect(() => {
   const fetchProfile = async () => {
@@ -22,15 +22,25 @@ const Header2 = ({ onGetHeight }) => {
   fetchProfile()
  }, [])
 
+ const styles = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  backgroundColor: isDark ? 'black' : 'transparent',
+  transition: '.3s ease-in-out',
+ }
+
+ const headerRef = useRef()
  useLayoutEffect(() => {
-  onGetHeight(headerRef?.current.offsetHeight)
+  onGetHeight(headerRef.current.offsetHeight)
  }, [])
 
  return (
   <div
    ref={headerRef}
-   id='header2'
-   className='left-0 right-0 z-10 flex items-center justify-between text-white border-b border-solid border-b-white overflow-y-auto'
+   id='header3'
+   className='left-0 right-0 z-10 flex items-center justify-between text-white border-b border-solid border-b-white'
+   style={styles}
   >
    <div className='flex items-center gap-2'>
     <Link
@@ -47,8 +57,12 @@ const Header2 = ({ onGetHeight }) => {
     <h3 className='capitalize'>{username}</h3>
    </div>
 
+   <div>
+    <img src={Logo} alt='logo' />
+   </div>
+
    <Navbar />
   </div>
  )
 }
-export default Header2
+export default Header3

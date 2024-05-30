@@ -1,3 +1,25 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+#sidebar-message::-webkit-scrollbar,
+#sidebar-group::-webkit-scrollbar {
+ width: 10px;
+ outline: 1px solid #fff;
+ background: transparent;
+}
+
+#sidebar-message::-webkit-scrollbar-thumb,
+#sidebar-group::-webkit-scrollbar-thumb {
+ background: #a7a3a3;
+ border-radius: 5px;
+}
+
+#sidebar-message::-webkit-scrollbar-thumb:hover,
+#sidebar-group::-webkit-scrollbar-thumb:hover {
+ background: gray;
+}
+
+#textarea-post::-webkit-scrollbar {
+ display: none;
+}

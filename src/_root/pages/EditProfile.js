@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import background from '../../images/background.jpg'
 import profileSchema from '../../schemas/profile'
 import Footer from '../../components/shared/Footer'
-import Header from '../../components/shared/Header'
+import Header1 from '../../components/header/Header1'
 
 const EditProfile = () => {
   const {
@@ -48,7 +48,7 @@ const EditProfile = () => {
         minHeight: '100vh',
       }}
     >
-      <Header />
+      <Header1 />
       <div className="w-full max-w-md mx-auto mt-10">
         <form
           onSubmit={handleSubmit(handleSubmitForm)}
