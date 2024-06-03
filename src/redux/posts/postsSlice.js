@@ -11,6 +11,7 @@ const initialState = {
  posts: [],
  loading: 'idle',
  changeTogglePosts: false,
+ newPosts: [],
 }
 
 export const postsSlice = createSlice({
@@ -30,11 +31,31 @@ export const postsSlice = createSlice({
    .addCase(addLikePost.fulfilled, (state, action) => {
     state.changeTogglePosts = !state.changeTogglePosts
    })
+   .addCase(addPost.fulfilled, (state, action) => {
+    state.changeTogglePosts = !state.changeTogglePosts
+   })
+   .addCase(patchPost.fulfilled, (state, action) => {
+    state.changeTogglePosts = !state.changeTogglePosts
+   })
+   .addCase(postComment.fulfilled, (state, action) => {
+    state.changeTogglePosts = !state.changeTogglePosts
+   })
+   .addCase(likeUnlikeComment.fulfilled, (state, action) => {
+    state.changeTogglePosts = !state.changeTogglePosts
+   })
+   .addCase(removeComment.fulfilled, (state, action) => {
+    state.changeTogglePosts = !state.changeTogglePosts
+   })
+   .addCase(deletePost.fulfilled, (state, action) => {
+    state.changeTogglePosts = !state.changeTogglePosts
+   })
  },
 })
 
 export const postsSelector = (state) => state.posts
 export const postsReducer = postsSlice.reducer
+
+// * POSTS
 
 export const fetchPosts = createAsyncThunk(
  'posts/fetchPostStatus',
@@ -48,10 +69,69 @@ export const fetchPosts = createAsyncThunk(
 )
 
 export const addLikePost = createAsyncThunk(
- 'posts/addLikePost',
+ 'posts/addLikePostStatus',
  async (postId) => {
+  console.log(postId)
   const res = await axios.post(
    `${API__SERVER}/forum/favorite/${userID}/${postId}`
+  )
+ }
+)
+
+export const addPost = createAsyncThunk('posts/addPostStatus', async (data) => {
+ const response = await axios.post(
+  `${API__SERVER}/forum/add_post/${userID}`,
+  data
+ )
+})
+
+export const patchPost = createAsyncThunk(
+ 'posts/patchPostStatus',
+ async ({ data, postID }) => {
+  const response = await axios.patch(
+   `${API__SERVER}/forum/update_post/${postID}`,
+   data
+  )
+
+  console.log('response:', response)
+ }
+)
+
+// * COMMENTS
+
+export const postComment = createAsyncThunk(
+ 'posts/postCommentStatus',
+ async ({ PostID, data }) => {
+  const response = await axios.post(
+   `${API__SERVER}/forum/add_comment/${userID}/${PostID}`,
+   data
+  )
+ }
+)
+
+export const likeUnlikeComment = createAsyncThunk(
+ 'posts/likeUnlikeCommentStatus',
+ async (commentID) => {
+  const response = await axios.post(
+   `${API__SERVER}/forum/comment/favorite/${userID}/${commentID}`
+  )
+ }
+)
+
+export const removeComment = createAsyncThunk(
+ 'posts/removeCommentStatus',
+ async (commentID) => {
+  const response = await axios.delete(
+   `${API__SERVER}/forum/comment/remove/${commentID}`
+  )
+ }
+)
+
+export const deletePost = createAsyncThunk(
+ 'posts/deletePostStatus',
+ async (postID) => {
+  const response = await axios.delete(
+   `${API__SERVER}/forum/delete_post/${postID}`
   )
  }
 )

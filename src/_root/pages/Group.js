@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import Header3 from '../../components/header/Header3'
@@ -62,7 +62,7 @@ const Group = () => {
      ref={sidebarRef}
      style={sidebarStyles}
      id='sidebar-group'
-     className='p-5 overflow-y-auto overflow-x-hidden max-w-[450px] w-max'
+     className='p-5 overflow-y-auto overflow-x-hidden max-w-[300px] lg:max-w-[450px] w-max'
     >
      <SideBarGroup onLoading={getIsLoadingSidebar} />
     </div>
@@ -100,7 +100,7 @@ const Group = () => {
       </div>
      </div>
 
-     <div className='grid grid-cols-2 py-5'>
+     <div className='grid 2xl:grid-cols-2 grid-cols-1 py-5'>
       <Outlet />
      </div>
     </div>

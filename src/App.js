@@ -9,16 +9,15 @@ import ForgotPassword from './_auth/forms/ForgotPassword'
 import RootLayout from './_root/RootLayout'
 import {
  Home,
- Posts,
  Profile,
  Finding,
  Personal,
  EditProfile,
- Message,
  Group,
 } from './_root/pages'
 import HomeLayout from './_root/HomeLayout'
-import GroupDetail from './components/shared/GroupDetail'
+import GroupDetail from './components/shared/GroupDetail/GroupDetail'
+import Message from './components/shared/Message'
 
 function App() {
  return (
@@ -33,7 +32,6 @@ function App() {
 
     {/* private routes */}
     <Route element={<RootLayout />}>
-     <Route path='/posts/:groupId' element={<Posts />} />
      <Route path='/finding' element={<Finding />} />
      <Route path='/profile/:username' element={<Profile />} />
      <Route path='/personal' element={<Personal />} />
@@ -46,7 +44,7 @@ function App() {
     </Route>
 
     <Route path='/group' element={<Group />}>
-     <Route path=':slug/:groupId' element={<GroupDetail/>}/>
+     <Route path=':slug/:groupId' element={<GroupDetail />} />
     </Route>
    </Routes>
   </main>

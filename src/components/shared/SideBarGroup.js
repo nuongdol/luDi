@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import Logogroup from '../../images/logo-group.png'
 import yeuhanoi from '../../images/yeuhanoi.png'
@@ -11,6 +11,7 @@ const { API__SERVER } = config
 
 const SideBarGroup = ({ onLoading }) => {
  const [groupList, setGroupList] = useState([])
+ const { groupId } = useParams()
 
  useEffect(() => {
   const fetchGroups = async () => {
@@ -36,17 +37,24 @@ const SideBarGroup = ({ onLoading }) => {
 
    <ul className='mt-5'>
     {groupList.map(({ GroupID, avatarLink, GroupName }) => (
-     <Link
-      to={`/group/${slugString(GroupName)}/${GroupID}`}
+     <li
       key={GroupID}
-      className='flex flex-wrap gap-2 items-center mb-3'
+      className=' mb-3'
+      style={
+       (GroupID === parseInt(groupId) ? { background: 'rgba(0,0,0,.2)' } : {})
+      }
      >
-      <div>
-       <img src={yeuhanoi} alt={GroupName} />
-      </div>
+      <Link
+       to={`/group/${slugString(GroupName)}/${GroupID}`}
+       className='flex flex-wrap gap-2 items-center'
+      >
+       <div>
+        <img src={yeuhanoi} alt={GroupName} />
+       </div>
 
-      <h5>{GroupName}</h5>
-     </Link>
+       <h5>{GroupName}</h5>
+      </Link>
+     </li>
     ))}
    </ul>
   </div>

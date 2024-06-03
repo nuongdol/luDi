@@ -3,5 +3,8 @@ import { messagesReducer } from './messages/messagesSlice'
 import { postsReducer } from './posts/postsSlice'
 
 export const store = configureStore({
- reducer: { messages: messagesReducer, posts: postsReducer },
+ reducer: {
+  messages: messagesReducer,
+  posts: postsReducer,
+ },
 })

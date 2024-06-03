@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
@@ -37,6 +37,7 @@ const SideBar = () => {
 
  const userId = localStorage.getItem('UserId')
  const userName = localStorage.getItem('UserNameIuDi')
+ const { id } = useParams()
 
  useEffect(() => {
   // client connect to server
@@ -118,7 +119,12 @@ const SideBar = () => {
        userIdOtherList.some((userId) => (isOnline = userId === OtherUserID))
 
        return (
-        <li key={MessageID}>
+        <li
+         key={MessageID}
+         style={
+          parseInt(id) === OtherUserID ? { background: 'rgba(0,0,0,.2)' } : {}
+         }
+        >
          <Link
           to={`/home/message/${OtherUserID}`}
           state={{
