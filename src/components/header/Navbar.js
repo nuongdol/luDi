@@ -38,12 +38,6 @@ const Navbar = () => {
   },
 
   {
-   name: 'Finding',
-   link: '/finding',
-   id: 2,
-  },
-
-  {
    name: 'Profile',
    link: `/profile/${username}`,
    id: 3,

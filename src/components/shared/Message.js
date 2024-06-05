@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import axios from 'axios'
 import { useLocation, useParams } from 'react-router-dom'
 import config from '../../configs/Configs.json'
 
@@ -7,15 +8,18 @@ import {
  fetchMessages,
  messagesSelector,
  postMessage,
+ deleteMessage,
 } from '../../redux/messages/messagesSlice'
 
 import callPhone from '../../images/icons/callphone.png'
 import callVideo from '../../images/icons/callvideo.png'
 import send from '../../images/icons/send.png'
 
+import { MdDelete } from 'react-icons/md'
+
 import Moment from 'react-moment'
 
-const { AVATAR_DEFAULT_FEMALE } = config
+const { AVATAR_DEFAULT_FEMALE, API_SERVER } = config
 
 const Message = () => {
  const { id } = useParams()
@@ -24,6 +28,7 @@ const Message = () => {
  const { userName, isOnline, userId } = location.state
  const messRef = useRef()
  const [messageForm, setMessageForm] = useState('')
+
 
  const { messages, postToggle } = useSelector(messagesSelector)
  const dispatch = useDispatch()
@@ -49,6 +54,10 @@ const Message = () => {
    dispatch(postMessage(data))
    setMessageForm('')
   }
+ }
+
+ const handleDeleteMessage = async (messageID) => {
+  dispatch(deleteMessage(messageID))
  }
 
  return (
@@ -87,7 +96,16 @@ const Message = () => {
       SenderID !== parseInt(id) ? (
        <div className='flex justify-end pb-3' key={MessageID}>
         <div className='flex flex-col items-end'>
-         <p className='bg-blue-600 rounded-[8px] p-[10px]'>{Content}</p>
+         <div className='flex items-center gap-1 group'>
+          <button
+           type='button'
+           className='text-black opacity-0 group-hover:opacity-100 duration-200'
+           onClick={() => handleDeleteMessage(MessageID)}
+          >
+           <MdDelete />
+          </button>
+          <p className='bg-blue-600 rounded-[8px] p-[10px]'>{Content}</p>
+         </div>
 
          <Moment
           date={`${MessageTime}+0700`}
@@ -107,8 +125,15 @@ const Message = () => {
           />
          </div>
 
-         <div className=''>
+         <div className='flex items-center gap-1 group'>
           <p className='bg-black rounded-[8px] p-[10px]'>{Content}</p>
+          <button
+           type='button'
+           className='text-black opacity-0 group-hover:opacity-100 duration-200'
+           onClick={() => handleDeleteMessage(MessageID)}
+          >
+           <MdDelete />
+          </button>
          </div>
         </div>
         <Moment

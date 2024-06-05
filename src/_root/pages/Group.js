@@ -5,6 +5,8 @@ import Header3 from '../../components/header/Header3'
 import SideBarGroup from '../../components/shared/SideBarGroup'
 import background from '../../images/background.jpg'
 import slideGroup from '../../images/slideGroup.png'
+import GroupImages from '../../components/shared/GroupImages'
+import GroupDetail from '../../components/shared/GroupDetail/GroupDetail'
 
 const Group = () => {
  const [heightHeader, setHeightHeader] = useState(100)
@@ -20,7 +22,7 @@ const Group = () => {
   // backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   position: 'relative',
-  minHeight: '100vh',
+  
  }
 
  const sidebarStyles = {
@@ -57,7 +59,7 @@ const Group = () => {
    style={backgroundImageStyle}
   >
    <Header3 isDark={isDark} onGetHeight={handleGetHeightHeder} />
-   <div className=''>
+   <div>
     <div
      ref={sidebarRef}
      style={sidebarStyles}
@@ -101,7 +103,8 @@ const Group = () => {
      </div>
 
      <div className='grid 2xl:grid-cols-2 grid-cols-1 py-5'>
-      <Outlet />
+      <GroupDetail />
+      <GroupImages/>
      </div>
     </div>
    </div>

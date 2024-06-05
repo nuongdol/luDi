@@ -22,6 +22,8 @@ const Header3 = ({ onGetHeight, isDark }) => {
   fetchProfile()
  }, [])
 
+ console.log(userInfo)
+
  const styles = {
   position: 'fixed',
   top: 0,
@@ -48,7 +50,7 @@ const Header3 = ({ onGetHeight, isDark }) => {
      className='w-20 h-20 overflow-hidden m-[15px] rounded-[50%]'
     >
      <img
-      src={AVATAR_DEFAULT_MALE || userInfo?.avatarLink}
+        src={AVATAR_DEFAULT_MALE || userInfo?.avatarLink}
       alt='avatar'
       className='w-full h-full'
      />

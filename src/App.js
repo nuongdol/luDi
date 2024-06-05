@@ -1,22 +1,20 @@
-import './App.css'
 import { Route, Routes } from 'react-router-dom'
+import './App.css'
 
 import AuthLayout from './_auth/AuthLayout'
+import ForgotPassword from './_auth/forms/ForgotPassword'
 import SigninForm from './_auth/forms/SigninForm'
 import SignupForm from './_auth/forms/SignupForm'
-import ForgotPassword from './_auth/forms/ForgotPassword'
 
+import HomeLayout from './_root/HomeLayout'
 import RootLayout from './_root/RootLayout'
 import {
- Home,
- Profile,
- Finding,
- Personal,
- EditProfile,
- Group,
+    EditProfile,
+    Group,
+    Home,
+    Personal,
+    Profile
 } from './_root/pages'
-import HomeLayout from './_root/HomeLayout'
-import GroupDetail from './components/shared/GroupDetail/GroupDetail'
 import Message from './components/shared/Message'
 
 function App() {
@@ -32,19 +30,15 @@ function App() {
 
     {/* private routes */}
     <Route element={<RootLayout />}>
-     <Route path='/finding' element={<Finding />} />
      <Route path='/profile/:username' element={<Profile />} />
      <Route path='/personal' element={<Personal />} />
      <Route path='/profile/edit' element={<EditProfile />} />
+     <Route path='/group/:slug/:groupId' element={<Group />}></Route>
     </Route>
 
     <Route path='/home' element={<HomeLayout />}>
      <Route path='' element={<Home />} />
      <Route path='message/:id' element={<Message />} />
-    </Route>
-
-    <Route path='/group' element={<Group />}>
-     <Route path=':slug/:groupId' element={<GroupDetail />} />
     </Route>
    </Routes>
   </main>

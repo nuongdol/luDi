@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Moment from 'react-moment'
 
 import { useDispatch } from 'react-redux'
@@ -20,18 +20,39 @@ const Comments = ({ comments }) => {
 
  const dispatch = useDispatch()
 
+ const refUlElement = useRef()
+ const refIcondown = useRef()
+
  return (
   <div id='comment-list' className='hidden duration-200' ref={refComment}>
    {comentList.length > 0 ? (
     <div>
-     <div className='flex gap-2 items-center my-3'>
-      <h5>Bình luận liên quan nhất</h5>
-      <span>
-       <FaChevronDown />
-      </span>
+     <div>
+      <button
+    //    onClick={() => {
+    //     const isHidden = refUlElement.current.classList.contains('hidden')
+
+    //     if (isHidden) {
+    //      refUlElement.current.classList.remove('hidden')
+    //      refIcondown.current.style.transform = 'rotate(0)'
+
+    //      return
+    //     }
+
+    //     refUlElement.current.classList.add('hidden')
+    //     refIcondown.current.style.transform = 'rotate(180deg)'
+    //    }}
+       className='flex gap-2 items-center my-3'
+       type=''
+      >
+       <p>Bình luận liên quan nhất</p>
+       <div ref={refIcondown}>
+        <FaChevronDown />
+       </div>
+      </button>
      </div>
 
-     <ul>
+     <ul ref={refUlElement} className='transition-all duration-200'>
       {comentList.map(
        ({
         FavoriteCount,

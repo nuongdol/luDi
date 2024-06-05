@@ -67,7 +67,7 @@ const FormPost = (props) => {
    setFormPost({
     ...formPost,
     image: imageUrl,
-    [e.target.name]: e.target.value,
+    file: e.target.value,
    })
    return
   }
@@ -75,7 +75,14 @@ const FormPost = (props) => {
   setFormPost({ ...formPost, [e.target.name]: e.target.value })
  }
 
- const handleSubmitFormPost = (e) => {
+ const handleChange = (e) => {
+  const stringUrl = 'blobhttp//localhost3000/9fa04e3f7b6f4a65b51239be56e6dcb8'
+  const  myBlob = new Blob([stringUrl], { type: 'application/pdf'})
+  
+ console.log(myBlob.result)
+ }
+
+ const handleSubmitFormPost = async (e) => {
   e.preventDefault()
 
   if (content.trim() === '' || title.trim() === '') return
@@ -85,7 +92,6 @@ const FormPost = (props) => {
    PhotoURL: image ? [image] : null,
    Title: title.trim(),
    GroupID: groupId,
-//    UpdatePostAt: new Date(),
    PostLatitude: LATITUDE_DEFAULT,
    PostLongitude: LONGITUDE_DEFAULT,
   }
@@ -103,6 +109,7 @@ const FormPost = (props) => {
   })
   hiddenModal()
  }
+
 
  return (
   <Modal
@@ -153,20 +160,20 @@ const FormPost = (props) => {
      <div className='relative rounded-lg overflow-hidden h-[150px]'>
       <img
        className='h-full w-full object-cover object-center'
+       //  src={image}
        src={image}
        alt='postImage'
       />
 
       <button
        className='text-xl absolute right-2 top-2 text-gray-900 hover:text-black transition'
-       onClick={() => setFormPost({ ...formPost, image: null })}
+       onClick={() => setFormPost({ ...formPost, image: null, file: '' })}
        type='button'
       >
        <AiFillCloseCircle />
       </button>
      </div>
     )}
-
     <div className='relative my-3 w-max bg-[#303030] py-2 px-5 rounded-md'>
      <div className='flex gap-1'>
       <img src={uploadFile} alt='upload file' />
@@ -174,10 +181,10 @@ const FormPost = (props) => {
      </div>
 
      <input
-      onChange={handleChangeFormPost}
+      onChange={handleChange}
       className='absolute z-10 inset-0 opacity-0 focus-visible:outline-none'
       type='file'
-      name='file'
+      name='image'
       value={file}
      />
     </div>

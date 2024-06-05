@@ -75,7 +75,6 @@ const GroupDetail = () => {
   return data.Comments
  }
 
-
  return (
   <div>
    <div className='relative p-5 rounded-lg bg-[#222222] border border-solid border-[#4EC957]'>
@@ -110,7 +109,7 @@ const GroupDetail = () => {
     </div>
    </div>
 
-   <div className='post-list'>
+   <div>
     <ul>
      {postList.length > 0 ? (
       postList.map(

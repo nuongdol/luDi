@@ -23,3 +23,7 @@
 #textarea-post::-webkit-scrollbar {
  display: none;
 }
+
+#sidebar-message .slick-track {
+ margin: 0 !important;
+}

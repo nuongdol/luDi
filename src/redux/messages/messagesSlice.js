@@ -26,11 +26,15 @@ export const messagesSlice = createSlice({
    .addCase(fetchMessages.fulfilled, (state, action) => {
     state.messages = action.payload
    })
+   .addCase(fetchHistoryMessages.fulfilled, (state, action) => {
+    state.historyMessages = action.payload
+   })
    .addCase(postMessage.fulfilled, (state, action) => {
     state.postToggle = !state.postToggle
    })
-   .addCase(fetchHistoryMessages.fulfilled, (state, action) => {
-    state.historyMessages = action.payload
+
+   .addCase(deleteMessage.fulfilled, (state, action) => {
+    state.postToggle = !state.postToggle
    })
  },
 })
@@ -61,5 +65,20 @@ export const fetchHistoryMessages = createAsyncThunk(
  async () => {
   const { data } = await axios.get(`${API__SERVER}/chat/${userID}`)
   return data.data
+ }
+)
+
+export const deleteMessage = createAsyncThunk(
+ 'messages/deleteMessage',
+ async (messageID) => {
+  const res = await fetch(`${API__SERVER}/chat/${userID}`, {
+   method: 'delete',
+   headers: {
+    'Content-Type': 'application/json',
+   },
+   body: JSON.stringify({
+    messageId: messageID,
+   }),
+  })
  }
 )

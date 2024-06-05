@@ -24,7 +24,7 @@ const SideBar = () => {
  var settings = {
   dots: false,
   infinite: false,
-  speed: 300,
+  speed: 500,
   slidesToShow: 5,
   slidesToScroll: 1,
  }
@@ -142,8 +142,8 @@ const SideBar = () => {
             />
 
             <div>
-             <h3>{OtherFullname}</h3>
-             <p>{Content}</p>
+             <h3 className='capitalize'>{OtherFullname}</h3>
+             <p className='text-gray-500'>{Content}</p>
             </div>
            </div>
 
