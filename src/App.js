@@ -8,6 +8,8 @@ import SignupForm from './_auth/forms/SignupForm'
 
 import HomeLayout from './_root/HomeLayout'
 import RootLayout from './_root/RootLayout'
+
+
 import {
     EditProfile,
     Group,
@@ -16,6 +18,7 @@ import {
     Profile
 } from './_root/pages'
 import Message from './components/shared/Message'
+
 
 function App() {
  return (
@@ -42,6 +45,8 @@ function App() {
     </Route>
    </Routes>
   </main>
+
+    
  )
 }
 

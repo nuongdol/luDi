@@ -1,0 +1,32 @@
+@media (max-width: 605px) {
+    .login{
+        display: none;
+        overflow: hidden;
+    } 
+    .header1{
+        display: none;
+
+    }  
+    .footer{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
+    @media (min-width: 605px) {
+        .authPage{
+            background-color: white;
+        }
+        
+    }
+    .authPage{
+        height: 812px;
+    }
+
+}
+
+@media (min-width: 650px ) {
+    .logmobile{
+        display: none;
+    } 
+}

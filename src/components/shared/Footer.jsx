@@ -1,9 +1,9 @@
 import { Typography } from "@material-tailwind/react";
-
+import '../../_auth/forms/styleSignin.css'
 const currentYear = new Date().getFullYear();
 const Footer = () => {
   return (
-    <div className="text-white w-full mt-11">
+    <div className="footer text-white w-full mt-11">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="w-full justify-center py-4 ">
           <div>
