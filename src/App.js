@@ -44,9 +44,7 @@ function App() {
      <Route path='message/:id' element={<Message />} />
     </Route>
    </Routes>
-  </main>
-
-    
+  </main>   
  )
 }
 

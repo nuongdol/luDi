@@ -8,7 +8,7 @@ import Logo from '../images/logoApp.png'
 import Header1 from '../components/header/Header1'
 import Footer from '../components/shared/Footer'
 import background from '../images/background.jpg'
-import './forms/styleSignin.css'
+// import './forms/styleSignin.css'
 
 const AuthLayout = () => {
   const backgroundImageStyle = {
@@ -26,7 +26,7 @@ const AuthLayout = () => {
       style={backgroundImageStyle}
     >
       <Header1 />
-      <div className="logo flex flex-col justify-center items-center mt-[100px] relative top-[-150px] ">
+      <div className="flex flex-col justify-center items-center mt-[100px] relative top-[-150px] ">
         <img src={Logo} alt="Your" className="w-[400px]" />
         <h1 className="font-bold text-white text-7xl text-center" >Kết Nối Yêu Thương</h1>
         <div className="flex justify-center items-center mt-[30px]">

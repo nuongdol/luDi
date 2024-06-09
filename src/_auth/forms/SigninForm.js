@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import loginSchema from '../../schemas/login'
 import Logo from '../../images/logoApp.png'
-import './styleSignin.css'
+// import './styleSignin.css'
 
 function SigninForm() {
   const {
@@ -82,10 +82,10 @@ function SigninForm() {
 
     <>
       <div
-        className='login absolute inset-0 flex items-center justify-center'
+        className='absolute inset-0 flex items-center justify-center'
         style={{ background: 'rgba(255, 255, 255, .3)' }}
       >
-        <div className='login max-w-md w-full mx-auto border-2 border-green-400 rounded-[20px] bg-gray-900'>
+        <div className=' max-w-md w-full mx-auto border-2 border-green-400 rounded-[20px] bg-gray-900'>
           <form
             onSubmit={handleSubmit(handleLogin)}
             //  onSubmit={(e) => {
@@ -185,17 +185,25 @@ function SigninForm() {
         </div>
       </div >
       {/* BS */}
-      <div className="logmobile absolute inset-0 flex items-center justify-center bg-[rgba(255,255,255,0.3)]">
-        <div className="relative w-[375px] h-[812px] bg-white overflow-hidden">
-          <div className="absolute w-[518px] h-[518px] left-[-195px] top-[-222px] bg-[rgba(0,135,72,0.7)] rounded-full"></div>
-          <div className="absolute w-[200px] h-[105px] left-[34px] top-[97px]">
-            <img src={Logo} alt="Your" className="w-[200px]" />
+      <div className=" md:hidden lg:hidden xl:hidden 2xl:hidden absolute inset-0 flex items-center justify-center bg-[rgba(255,255,255,0.3)]">
+        <div className="relative w-[375px] h-full bg-white overflow-hidden">
+          <div className="absolute top-[0] left[0] w-[100%] h-[45%] bg-white overflow-hidden">
+            <div className='absolute w-[120%] h-[146%] top-[-55%] left-[-40%]' style={{
+              borderRadius: "50%",
+              backgroundColor: "rgba(0,135,72,0.7)",
+            }}></div>
+            <div className="absolute w-[60%] h-[40%] left-[10%] top-[25%]">
+              <img src={Logo} alt="Your" style={{ width: "90%", }} />
+            </div>
+            <p className="absolute text-white font-light text-[18px] leading-[90%] tracking-[-90%] text-center w-[90%] h-[100%] top-[60%] left-[-16%]">
+              Kết nối yêu thương
+            </p>
+            <div className="absolute w-[70%] h-[85%] top-[-15%] left-[60%]" style={{
+              borderRadius: "60%",
+              backgroundColor: "rgba(20,145,87,0.9)",
+            }}></div>
           </div>
-          <p className="absolute text-white font-light text-[18px] leading-[27px] tracking-[-0.3px] text-center w-[160px] h-[27px] top-[186px] left-[34px]">
-            Kết nối yêu thương
-          </p>
-          <div className="absolute w-[254px] h-[254px] left-[219px] top-[-30px] bg-[rgba(20,145,87,0.9)] rounded-full"></div>
-          <div className="relative w-[343px] h-[188px] left-[16px] top-[304px] border-none">
+          <div className="relative mr-8 h-[30%] left-[5%] top-[42%] " >
             <form onSubmit={handleSubmit(handleLogin)}>
               <div className="mb-1">
                 <label className="block font-bold text-black text-sm" htmlFor="hoten">Họ tên</label>
@@ -230,7 +238,8 @@ function SigninForm() {
                   <input
                     type="checkbox"
                     id="remember"
-                    className="w-4 h-4 border border-black rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                    className="w-4 h-4 border border-black rounded bg-gray-50 focus:ring-3 
+                    focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                     required=""
                   />
                 </div>
@@ -246,7 +255,7 @@ function SigninForm() {
               </div>
             </form>
           </div>
-          <div className="absolute w-[228px] h-[21px] left-[74px] top-[739px] font-medium text-sm leading-[21px]">
+          <div className="absolute w-[60%] h-[10%] left-[20%] top-[90%] font-medium text-sm leading-[21px]">
             <div className="mb-16">
               <p className="text-sm text-center mb-4 text-black">
                 Bạn chưa có tài khoản?{' '}
@@ -256,10 +265,9 @@ function SigninForm() {
               </p>
             </div>
           </div>
-          <div className="absolute w-[134px] h-[5px] left-[120px] top-[778px] bg-black rounded-[2.5px] opacity-80"></div>
+          <div className="absolute w-[40%] h-[0.5%] left-[30%] top-[98%] bg-black rounded-[2.5px] opacity-80"></div>
         </div>
       </div>
-
     </>
   )
 }
