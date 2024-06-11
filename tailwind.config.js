@@ -6,6 +6,7 @@ module.exports = withMT({
   theme: {
     extend: {
       screens: {
+        'sm': {'max':'399px'},
         'md': '400px',
       },
       backgroundImage: {

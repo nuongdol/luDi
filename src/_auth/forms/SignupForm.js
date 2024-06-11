@@ -86,10 +86,11 @@ const SignupForm = () => {
     }
   }
 
+
   return (
     <>
       <div
-        className="absolute inset-0 flex items-center justify-center"
+        className="md:absolute inset-0 flex items-center justify-center sm:hidden"
         style={{ background: 'rgba(255, 255, 255, .3)' }}
       >
         <div className="max-w-md w-full mx-auto border-2 border-green-400 rounded-[20px] bg-gray-900">
@@ -300,12 +301,12 @@ const SignupForm = () => {
       </div >
 
       {/* BS */}
-      {/* <div className=" hidden absolute inset-0 flex items-center justify-center bg-[rgba(255,255,255,0.3)]">
+      <div className="absolute inset-0 flex items-center justify-center bg-[rgba(255,255,255,0.3)] md:hidden">
         <div className="relative w-[100%] h-full bg-white overflow-hidden">
-        <div className="absolute top-[0] left[0] w-[100%] h-[45%] bg-white overflow-hidden">
+          <div className="absolute top-[0] left[0] w-[100%] h-[45%] bg-white overflow-hidden">
             <div className='absolute w-[130%] h-[145%] top-[-54%] left-[-40%] -mt-20 -ml-1' style={{
               borderRadius: "50%",
-              backgroundColor:"rgba(0,135,72,0.7)",
+              backgroundColor: "rgba(0,135,72,0.7)",
             }}></div>
             <div className="absolute w-[60%] h-[40%] left-[10%] top-[25%] -mt-6">
               <img src={Logo} alt="Your" style={{ width: "90%" }} />
@@ -321,17 +322,20 @@ const SignupForm = () => {
           <div className="relative mr-8 h-[40%] left-[5%] top-[42%] -mt-20">
             <form onSubmit={handleSubmit(handleSubmitForm)}>
               <div className="mb-1">
-                <label className="block py-1 font-bold text-black text-sm" htmlFor="hoten">Họ tên</label>
+                <label className="block py-1 font-bold text-black text-sm" htmlFor="UserName">Họ tên</label>
                 <input
                   className="w-full container mx-auto px-2 py-1 border-2 border-gray-300 rounded-full focus:outline-none focus:shadow-outline"
-                  id="hoten"
+                  id="UserName"
                   type="text"
                   placeholder="Họ tên"
-                  name="hoten"
-                  {...register('Name')}
+                  name="UserName"
+                  {...register('Username')}
                 />
-                {errors.Name && (
-                  <p className="mt-2 text-sm font-bold text-red-500">{errors.Name.message}</p>
+                {errors.Username && (
+                  <p className='mt-2 text-sm font-bold text-red-500'>
+                    {' '}
+                    {errors.Username.message}{' '}
+                  </p>
                 )}
               </div>
               <div className="mb-1">
@@ -370,17 +374,11 @@ const SignupForm = () => {
                     className="w-4 h-4 border border-black rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                     required=""
                     name='Checkbox'
-                    {...register("Checkbox")}
                   />
                 </div>
                 <div className="ml-1 text-sm">
                   <label className="block font-bold text-black text-sm" htmlFor="remember"><small>Đăng kí điều khoản và điều kiện</small></label>
                 </div>
-              </div>
-              <div className="mb-1">
-                {errors.Checkbox && (
-                  <p className="mt-2 text-sm font-bold text-red-500">{errors.Checkbox.message}</p>
-                )}
               </div>
               <div className="mb-1 py-3">
                 <button
@@ -405,7 +403,7 @@ const SignupForm = () => {
           </div>
           <div className="absolute w-[40%] h-[0.5%] left-[30%] top-[98%] bg-black rounded-[2.5px] opacity-80"></div>
         </div>
-      </div> */}
+      </div>
     </>
   )
 }
