@@ -5,6 +5,9 @@ module.exports = withMT({
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        'md': '400px',
+      },
       backgroundImage: {
         'bg-card': "url('/src/images/background.jpg')"
       }

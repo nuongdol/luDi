@@ -22,7 +22,7 @@ const AuthLayout = () => {
 
   return (
     <div
-      className="authPage flex flex-col justify-between w-full h-screen"
+      className="flex flex-col justify-between w-full h-screen"
       style={backgroundImageStyle}
     >
       <Header1 />

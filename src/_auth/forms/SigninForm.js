@@ -185,28 +185,28 @@ function SigninForm() {
         </div>
       </div >
       {/* BS */}
-      <div className=" md:hidden lg:hidden xl:hidden 2xl:hidden absolute inset-0 flex items-center justify-center bg-[rgba(255,255,255,0.3)]">
-        <div className="relative w-[375px] h-full bg-white overflow-hidden">
+      {/* <div className=" sm: hidden absolute inset-0 flex items-center justify-center bg-[rgba(255,255,255,0.3)] md:hidden">
+        <div className="relative w-[100%] h-full bg-white overflow-hidden">
           <div className="absolute top-[0] left[0] w-[100%] h-[45%] bg-white overflow-hidden">
-            <div className='absolute w-[120%] h-[146%] top-[-55%] left-[-40%]' style={{
+            <div className='absolute w-[130%] h-[145%] top-[-54%] left-[-40%] -mt-20 -ml-1' style={{
               borderRadius: "50%",
-              backgroundColor: "rgba(0,135,72,0.7)",
+              backgroundColor:"rgba(0,135,72,0.7)",
             }}></div>
-            <div className="absolute w-[60%] h-[40%] left-[10%] top-[25%]">
-              <img src={Logo} alt="Your" style={{ width: "90%", }} />
+            <div className="absolute w-[60%] h-[40%] left-[10%] top-[25%] -mt-6">
+              <img src={Logo} alt="Your" style={{ width: "90%" }} />
             </div>
-            <p className="absolute text-white font-light text-[18px] leading-[90%] tracking-[-90%] text-center w-[90%] h-[100%] top-[60%] left-[-16%]">
+            <p className="absolute text-white font-light text-[18px] leading-[90%] tracking-[-90%] text-center w-[90%] h-[100%] top-[60%] left-[-15%] -mt-14">
               Kết nối yêu thương
             </p>
-            <div className="absolute w-[70%] h-[85%] top-[-15%] left-[60%]" style={{
-              borderRadius: "60%",
+            <div className="absolute w-[70%] h-[70%] top-[-16%] left-[60%] mr-8 mt-3" style={{
+              borderRadius: "50%",
               backgroundColor: "rgba(20,145,87,0.9)",
             }}></div>
           </div>
-          <div className="relative mr-8 h-[30%] left-[5%] top-[42%] " >
+          <div className="relative mr-8 h-[30%] left-[5%] top-[42%] -mt-20 " >
             <form onSubmit={handleSubmit(handleLogin)}>
               <div className="mb-1">
-                <label className="block font-bold text-black text-sm" htmlFor="hoten">Họ tên</label>
+                <label className="block font-bold text-black text-sm py-1" htmlFor="hoten">Họ tên</label>
                 <input
                   className="w-full px-2 py-1 border-2 border-gray-300 rounded-full focus:outline-none focus:shadow-outline"
                   id="hoten"
@@ -220,7 +220,7 @@ function SigninForm() {
                 )}
               </div>
               <div className="mb-1">
-                <label className="block font-bold text-black text-sm" htmlFor="password">Mật khẩu</label>
+                <label className="block py-1 font-bold text-black text-sm" htmlFor="password">Mật khẩu</label>
                 <input
                   className="w-full px-2 py-1 border-2 border-gray-300 rounded-full focus:outline-none focus:shadow-outline"
                   id="password"
@@ -233,7 +233,7 @@ function SigninForm() {
                   <p className="mt-2 text-sm font-bold text-red-500">{errors.Password.message}</p>
                 )}
               </div>
-              <div className="mb-1 flex items-start">
+              <div className="mb-1 py-1 flex items-start">
                 <div className="flex items-center h-5">
                   <input
                     type="checkbox"
@@ -247,7 +247,7 @@ function SigninForm() {
                   <label className="block font-bold text-black text-sm" htmlFor="remember"><small>Ghi nhớ mật khẩu</small></label>
                 </div>
               </div>
-              <div className="mb-1">
+              <div className="mb-1 mt-5">
                 <button
                   className="w-full px-2 py-1 font-bold text-white rounded-full focus:outline-none focus:shadow-outline"
                   style={{ background: 'rgba(0, 135, 72, 1)' }}
@@ -267,7 +267,7 @@ function SigninForm() {
           </div>
           <div className="absolute w-[40%] h-[0.5%] left-[30%] top-[98%] bg-black rounded-[2.5px] opacity-80"></div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
